@@ -1,9 +1,7 @@
-/* Global Style */
 .root {
     -fx-background-color: #f5f5f5;
 }
 
-/* Style for the direction buttons */
 .direction-button {
     -fx-font-size: 16px;
     -fx-pref-width: 60px;
@@ -24,7 +22,6 @@
     -fx-background-color: #9e9e9e;
 }
 
-/* Style for the action buttons */
 .action-button {
     -fx-font-size: 16px;
     -fx-pref-width: 150px;
@@ -45,32 +42,27 @@
     -fx-background-color: #388e3c;
 }
 
-/* Style for the CheckBox */
 .check-box {
     -fx-font-size: 14px;
     -fx-text-fill: #555;
 }
 
-/* Style for the labels */
 .label {
     -fx-font-size: 14px;
     -fx-text-fill: #555;
 }
 
-/* Style for the main VBox and other containers */
 .VBox {
     -fx-spacing: 20px;
     -fx-alignment: center;
 }
 
-/* Style for the GridPane */
 #intersectionGrid {
     -fx-background-color: #e0e0e0;
     -fx-border-color: #ccc;
     -fx-border-width: 2px;
 }
 
-/* Style for the BorderPane */
 .BorderPane {
     -fx-padding: 20px;
     -fx-background-color: #f4f4f4;

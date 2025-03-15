@@ -1,5 +1,7 @@
 package ui.presenter;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import infrastructure.Intersection;
 import org.junit.jupiter.api.*;
 import java.io.File;
@@ -31,9 +33,11 @@ class JsonSimulationTest {
         );
         simulator.runSimulation();
 
-        String actualOutput = Files.readString(Paths.get(OUTPUT_FILE_PATH)).trim();
-        String expectedOutput = Files.readString(Paths.get(EXPECTED_OUTPUT_FILE_PATH)).trim();
+        ObjectMapper objectMapper = new ObjectMapper();
 
-        assertEquals(expectedOutput, actualOutput);
+        JsonNode actualOutputNode = objectMapper.readTree(new File(OUTPUT_FILE_PATH));
+        JsonNode expectedOutputNode = objectMapper.readTree(new File(EXPECTED_OUTPUT_FILE_PATH));
+
+        assertEquals(expectedOutputNode, actualOutputNode);
     }
 }

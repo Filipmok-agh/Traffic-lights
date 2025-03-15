@@ -49,11 +49,10 @@ public class JsonSimulationTestable {
                 case "step" -> handleStep();
             }
 
-            // Symulacja odświeżania UI, tutaj po prostu wyświetlamy stan na konsoli
             printIntersectionState();
 
             try {
-                Thread.sleep(1000); // Symulacja opóźnienia między krokami
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
