@@ -73,8 +73,8 @@ public class TrafficLane implements RoadSegment {
         return false;
     }
 
-    public Car removeCar() {
-        return this.cars.poll();
+    public Optional<Car> removeCar() {
+        return Optional.ofNullable(this.cars.poll());
     }
 
     public void addCar(Car car) {

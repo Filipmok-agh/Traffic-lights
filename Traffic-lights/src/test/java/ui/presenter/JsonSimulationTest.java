@@ -1,0 +1,39 @@
+package ui.presenter;
+
+import infrastructure.Intersection;
+import org.junit.jupiter.api.*;
+import java.io.File;
+import java.nio.file.*;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class JsonSimulationTest {
+    private static final String INPUT_FILE_PATH = "src/test/resources/input.json";
+    private static final String EXPECTED_OUTPUT_FILE_PATH = "src/test/resources/expected_output.json";
+    private static final String OUTPUT_FILE_PATH = "src/main/resources/test_output.json";
+
+    @BeforeEach
+    void setUp() {
+        File outputFile = new File(OUTPUT_FILE_PATH);
+        if (outputFile.exists()) {
+            assertTrue(outputFile.delete(), "Error deleting output file.");
+        }
+    }
+
+    @Test
+    void testJsonSimulation() throws Exception {
+        Intersection intersection = new Intersection(true);
+
+        JsonSimulationTestable simulator = new JsonSimulationTestable(
+                new File(INPUT_FILE_PATH),
+                "test_output",
+                intersection
+        );
+        simulator.runSimulation();
+
+        String actualOutput = Files.readString(Paths.get(OUTPUT_FILE_PATH)).trim();
+        String expectedOutput = Files.readString(Paths.get(EXPECTED_OUTPUT_FILE_PATH)).trim();
+
+        assertEquals(expectedOutput, actualOutput);
+    }
+}

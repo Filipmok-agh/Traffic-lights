@@ -5,6 +5,8 @@ import elements.Direction;
 import elements.Light;
 import org.junit.jupiter.api.Test;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class TrafficLaneTest {
@@ -160,16 +162,21 @@ class TrafficLaneTest {
     @Test
     void removeCar() {
         //given
-        TrafficLane trafficLane = new TrafficLane(Direction.SOUTH,Direction.NORTH,Light.YELLOW);
+        TrafficLane trafficLane = new TrafficLane(Direction.SOUTH, Direction.NORTH, Light.YELLOW);
 
         //when
-        trafficLane.addCar(new Car("car",Direction.SOUTH,Direction.NORTH,true));
+        trafficLane.addCar(new Car("car", Direction.SOUTH, Direction.NORTH, true));
 
         //then
         assertEquals(1, trafficLane.getSize());
-        assertEquals("car", trafficLane.removeCar().getVehicleID() );
+
+        Optional<Car> removedCarOpt = trafficLane.removeCar();
+        assertTrue(removedCarOpt.isPresent());
+        assertEquals("car", removedCarOpt.get().getVehicleID());
+
         assertEquals(0, trafficLane.getSize());
     }
+
 
     @Test
     void addCar() {

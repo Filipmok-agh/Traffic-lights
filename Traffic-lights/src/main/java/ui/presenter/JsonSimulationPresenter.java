@@ -19,7 +19,7 @@ public class JsonSimulationPresenter extends SimulationPresenter {
     private final String saveJsonName;
     private final ArrayList<ArrayList<String>> stepStatuses = new ArrayList<>();
 
-    @FXML private Button startButton;
+    @FXML public Button startButton;
 
     public JsonSimulationPresenter(File loadedJsonFile, String saveJsonName) {
         this.loadedJsonFile = loadedJsonFile;

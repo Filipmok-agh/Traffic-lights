@@ -8,6 +8,7 @@ import javafx.util.Pair;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class Intersection {
 
@@ -78,11 +79,9 @@ public class Intersection {
         ArrayList<String> result = new ArrayList<>();
         for (TrafficLane trafficLane : this.trafficLanes)
         {
-            String newResult = this.processCar(trafficLane);
-            if(newResult != null)
-            {
-                result.add(newResult);
-            }
+            Optional<String> newResult = this.processCar(trafficLane);
+            newResult.ifPresent(result::add);
+
         }
         return result;
     }
@@ -92,11 +91,16 @@ public class Intersection {
         this.trafficLanes.get(laneIndex).addCar(car);
     }
 
-    private String processCar(TrafficLane trafficLane) {
+    private Optional<String> processCar(TrafficLane trafficLane) {
         if (trafficLane.canProceed()) {
-            return trafficLane.removeCar().getVehicleID();
+            Optional<Car> carOpt = trafficLane.removeCar();
+            if (carOpt.isPresent()) {
+                Car car = carOpt.get();
+                return Optional.ofNullable(car.getVehicleID());
+            }
+            return Optional.empty();
         }
-        return null;
+        return Optional.empty();
     }
 
     public ArrayList<TrafficLane> getLanes() {
