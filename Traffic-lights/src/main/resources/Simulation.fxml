@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.geometry.Pos?>
+<?import javafx.scene.control.TextArea?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            minHeight="600.0" minWidth="800.0"
+            stylesheets="@/styles.css">
+
+    <!-- Left Section -->
+    <left>
+        <VBox spacing="20" style="-fx-padding: 20px; -fx-background-color: #f4f4f4; -fx-border-color: #ddd; -fx-border-width: 1px; -fx-border-radius: 10px;">
+
+            <Label text="Add Car" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+
+            <Label text="Start Direction:" style="-fx-font-size: 16px; -fx-text-fill: #555;"/>
+
+            <!-- Start Direction (Compass Layout) -->
+            <VBox alignment="CENTER" spacing="10">
+                <ToggleButton text="N" fx:id="startNorth" styleClass="direction-button"/>
+                <HBox alignment="CENTER" spacing="10">
+                    <ToggleButton text="W" fx:id="startWest" styleClass="direction-button"/>
+                    <ToggleButton text="E" fx:id="startEast" styleClass="direction-button"/>
+                </HBox>
+                <ToggleButton text="S" fx:id="startSouth" styleClass="direction-button"/>
+            </VBox>
+
+            <Label text="End Direction:" style="-fx-font-size: 16px; -fx-text-fill: #555;"/>
+
+            <!-- End Direction (Compass Layout) -->
+            <VBox alignment="CENTER" spacing="10">
+                <ToggleButton text="N" fx:id="endNorth" styleClass="direction-button"/>
+                <HBox alignment="CENTER" spacing="10">
+                    <ToggleButton text="W" fx:id="endWest" styleClass="direction-button"/>
+                    <ToggleButton text="E" fx:id="endEast" styleClass="direction-button"/>
+                </HBox>
+                <ToggleButton text="S" fx:id="endSouth" styleClass="direction-button"/>
+            </VBox>
+
+            <CheckBox text="Good Driver" fx:id="goodDriverCheckBox" style="-fx-font-size: 14px;"/>
+
+            <!-- Action Buttons -->
+            <VBox alignment="CENTER" spacing="20" style="-fx-padding: 20px;">
+                <Button text="Add Car" fx:id="addCarButton" styleClass="action-button"/>
+                <Button text="Step" fx:id="stepButton" styleClass="action-button"/>
+            </VBox>
+
+            <Label fx:id="carsLeftLabel" text="Cars that left the intersection:" style="-fx-font-size: 14px; -fx-text-fill: #333;" prefWidth="200"/>
+
+        </VBox>
+    </left>
+
+    <!-- Center Section -->
+    <center>
+        <GridPane fx:id="intersectionGrid" hgap="3" vgap="3" alignment="CENTER" gridLinesVisible="true" prefWidth="930" prefHeight="930" style="-fx-background-color: #e0e0e0; -fx-border-color: #ccc; -fx-border-width: 2px;"/>
+    </center>
+</BorderPane>
