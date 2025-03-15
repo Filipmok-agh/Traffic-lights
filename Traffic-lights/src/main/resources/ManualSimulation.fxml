@@ -7,8 +7,7 @@
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.geometry.Pos?>
-<?import javafx.scene.control.TextArea?>
+
 
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"

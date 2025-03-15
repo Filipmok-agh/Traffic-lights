@@ -1,7 +1,6 @@
-package infrastructure;
+package elements;
 
-import elements.Direction;
-import elements.Light;
+import infrastructure.TrafficLane;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,10 +15,10 @@ class RoadPositionCalculatorTest {
 
     @BeforeEach
     void setUp() {
-        northToSouthTrafficLane = new TrafficLane(Direction.North, Direction.South, Light.GREEN);
-        eastToWestTrafficLane = new TrafficLane(Direction.East, Direction.West, Light.GREEN);
-        westToEastTrafficLane = new TrafficLane(Direction.West, Direction.East, Light.GREEN);
-        southToNorthTrafficLane = new TrafficLane(Direction.South, Direction.North, Light.GREEN);
+        northToSouthTrafficLane = new TrafficLane(Direction.NORTH, Direction.SOUTH, Light.GREEN);
+        eastToWestTrafficLane = new TrafficLane(Direction.EAST, Direction.WEST, Light.GREEN);
+        westToEastTrafficLane = new TrafficLane(Direction.WEST, Direction.EAST, Light.GREEN);
+        southToNorthTrafficLane = new TrafficLane(Direction.SOUTH, Direction.NORTH, Light.GREEN);
     }
 
     @Test

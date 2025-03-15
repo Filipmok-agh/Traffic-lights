@@ -1,4 +1,4 @@
-import ui.StartMenuApp;
+import ui.app.StartMenuApp;
 import javafx.application.Application;
 
 

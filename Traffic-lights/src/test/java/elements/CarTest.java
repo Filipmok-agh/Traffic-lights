@@ -9,7 +9,7 @@ class CarTest {
     @Test
     void getVehicleID() {
         //given
-        Car car = new Car("car",Direction.South,Direction.North,true);
+        Car car = new Car("car",Direction.SOUTH,Direction.NORTH,true);
 
         //then
         assertEquals("car",car.getVehicleID());
@@ -19,19 +19,19 @@ class CarTest {
     @Test
     void getStartRoad() {
         //given
-        Car car = new Car("car",Direction.South,Direction.North,true);
+        Car car = new Car("car",Direction.SOUTH,Direction.NORTH,true);
 
         //then
-        assertEquals(Direction.South,car.getStartRoad());
+        assertEquals(Direction.SOUTH,car.getStartRoad());
     }
 
     @Test
     void getEndRoad() {
         //given
-        Car car = new Car("car",Direction.South,Direction.North,true);
+        Car car = new Car("car",Direction.SOUTH,Direction.NORTH,true);
 
         //then
-        assertEquals(Direction.North,car.getEndRoad());
+        assertEquals(Direction.NORTH,car.getEndRoad());
     }
 
     @Test
@@ -41,8 +41,8 @@ class CarTest {
         Light redYellowLight =Light.RED_YELLOW;
         Light greenLight =Light.GREEN;
         Light yellowLight =Light.YELLOW;
-        Car goodDriver = new Car("goodDriver",Direction.South,Direction.North,true);
-        Car notGoodDriver = new Car("notGoodDriver",Direction.South,Direction.North,false);
+        Car goodDriver = new Car("goodDriver",Direction.SOUTH,Direction.NORTH,true);
+        Car notGoodDriver = new Car("notGoodDriver",Direction.SOUTH,Direction.NORTH,false);
 
         //then
         assertTrue(goodDriver.canProceed(greenLight));

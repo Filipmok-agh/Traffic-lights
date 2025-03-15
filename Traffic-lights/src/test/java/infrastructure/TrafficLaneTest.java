@@ -12,11 +12,11 @@ class TrafficLaneTest {
     @Test
     void getSize() {
         //given
-        TrafficLane emptyTrafficLane = new TrafficLane(Direction.South,Direction.North,Light.YELLOW);
-        TrafficLane notEmptyTrafficLane = new TrafficLane(Direction.South,Direction.North,Light.YELLOW);
+        TrafficLane emptyTrafficLane = new TrafficLane(Direction.SOUTH,Direction.NORTH,Light.YELLOW);
+        TrafficLane notEmptyTrafficLane = new TrafficLane(Direction.SOUTH,Direction.NORTH,Light.YELLOW);
 
         //when
-        notEmptyTrafficLane.addCar(new Car("car",Direction.South,Direction.North,true));
+        notEmptyTrafficLane.addCar(new Car("car",Direction.SOUTH,Direction.NORTH,true));
 
         //then
         assertEquals(0, emptyTrafficLane.getSize());
@@ -26,7 +26,7 @@ class TrafficLaneTest {
     @Test
     void getLight() {
         //given
-        TrafficLane TrafficLane = new TrafficLane(Direction.South,Direction.North,Light.YELLOW);
+        TrafficLane TrafficLane = new TrafficLane(Direction.SOUTH,Direction.NORTH,Light.YELLOW);
 
         //then
         assertEquals(Light.YELLOW, TrafficLane.getLight());
@@ -35,26 +35,26 @@ class TrafficLaneTest {
     @Test
     void getStartDirection() {
         //given
-        TrafficLane TrafficLane = new TrafficLane(Direction.South,Direction.North,Light.YELLOW);
+        TrafficLane TrafficLane = new TrafficLane(Direction.SOUTH,Direction.NORTH,Light.YELLOW);
 
         //then
-        assertEquals(Direction.South, TrafficLane.getStartDirection());
+        assertEquals(Direction.SOUTH, TrafficLane.getStartDirection());
     }
 
     @Test
     void getEndDirection() {
         //given
-        TrafficLane TrafficLane = new TrafficLane(Direction.South,Direction.North,Light.YELLOW);
+        TrafficLane TrafficLane = new TrafficLane(Direction.SOUTH,Direction.NORTH,Light.YELLOW);
 
         //then
-        assertEquals(Direction.North, TrafficLane.getEndDirection());
+        assertEquals(Direction.NORTH, TrafficLane.getEndDirection());
     }
 
     @Test
     void stepWithGoodDriver() {
         //given
-        TrafficLane trafficLaneWithGoodDriver = new TrafficLane(Direction.South, Direction.North, Light.RED);
-        trafficLaneWithGoodDriver.addCar(new Car("car", Direction.South, Direction.North, true));
+        TrafficLane trafficLaneWithGoodDriver = new TrafficLane(Direction.SOUTH, Direction.NORTH, Light.RED);
+        trafficLaneWithGoodDriver.addCar(new Car("car", Direction.SOUTH, Direction.NORTH, true));
 
         // then
         for (int i = 0; i < 4; i++) {
@@ -71,8 +71,8 @@ class TrafficLaneTest {
     @Test
     void stepWithBadDriver() {
         //given
-        TrafficLane trafficLaneWithNotGoodDriver = new TrafficLane(Direction.South, Direction.North, Light.RED);
-        trafficLaneWithNotGoodDriver.addCar(new Car("car", Direction.South, Direction.North, false));
+        TrafficLane trafficLaneWithNotGoodDriver = new TrafficLane(Direction.SOUTH, Direction.NORTH, Light.RED);
+        trafficLaneWithNotGoodDriver.addCar(new Car("car", Direction.SOUTH, Direction.NORTH, false));
 
         // then
         for (int i = 0; i < 4; i++) {
@@ -92,13 +92,13 @@ class TrafficLaneTest {
     @Test
     void isBusy() {
         //given
-        TrafficLane greenLightTrafficLane = new TrafficLane(Direction.South,Direction.North,Light.GREEN);
-        TrafficLane redLightTrafficLane = new TrafficLane(Direction.South,Direction.North,Light.RED);
-        TrafficLane emptyTrafficLane = new TrafficLane(Direction.South,Direction.North,Light.GREEN);
+        TrafficLane greenLightTrafficLane = new TrafficLane(Direction.SOUTH,Direction.NORTH,Light.GREEN);
+        TrafficLane redLightTrafficLane = new TrafficLane(Direction.SOUTH,Direction.NORTH,Light.RED);
+        TrafficLane emptyTrafficLane = new TrafficLane(Direction.SOUTH,Direction.NORTH,Light.GREEN);
 
         //when
-        greenLightTrafficLane.addCar(new Car("car",Direction.South,Direction.North,true));
-        redLightTrafficLane.addCar(new Car("car",Direction.South,Direction.North,true));
+        greenLightTrafficLane.addCar(new Car("car",Direction.SOUTH,Direction.NORTH,true));
+        redLightTrafficLane.addCar(new Car("car",Direction.SOUTH,Direction.NORTH,true));
 
         //then
         assertTrue(greenLightTrafficLane.isBusy());
@@ -109,7 +109,7 @@ class TrafficLaneTest {
     @Test
     void canProceedWithoutCar() {
         //given
-        TrafficLane trafficLane = new TrafficLane(Direction.South,Direction.North,Light.GREEN);
+        TrafficLane trafficLane = new TrafficLane(Direction.SOUTH,Direction.NORTH,Light.GREEN);
 
         //then
         assertFalse(trafficLane.canProceed());
@@ -117,10 +117,10 @@ class TrafficLaneTest {
     @Test
     void canProceedWithoutBlockingSegment() {
         //given
-        TrafficLane trafficLane = new TrafficLane(Direction.South,Direction.North,Light.GREEN);
+        TrafficLane trafficLane = new TrafficLane(Direction.SOUTH,Direction.NORTH,Light.GREEN);
 
         //when
-        trafficLane.addCar(new Car("car",Direction.South,Direction.North,true));
+        trafficLane.addCar(new Car("car",Direction.SOUTH,Direction.NORTH,true));
 
         //then
         assertTrue(trafficLane.canProceed());
@@ -129,12 +129,12 @@ class TrafficLaneTest {
     @Test
     void canProceedWithBlockingSegment() {
         //given
-        TrafficLane trafficLane = new TrafficLane(Direction.South,Direction.North,Light.GREEN);
-        TrafficLane blockingLane = new TrafficLane(Direction.South,Direction.North,Light.GREEN);
+        TrafficLane trafficLane = new TrafficLane(Direction.SOUTH,Direction.NORTH,Light.GREEN);
+        TrafficLane blockingLane = new TrafficLane(Direction.SOUTH,Direction.NORTH,Light.GREEN);
 
         //when
-        trafficLane.addCar(new Car("car",Direction.South,Direction.North,true));
-        blockingLane.addCar(new Car("car",Direction.South,Direction.North,true));
+        trafficLane.addCar(new Car("car",Direction.SOUTH,Direction.NORTH,true));
+        blockingLane.addCar(new Car("car",Direction.SOUTH,Direction.NORTH,true));
         trafficLane.addBlockingSegment(blockingLane);
 
         //then
@@ -145,11 +145,11 @@ class TrafficLaneTest {
     @Test
     void canProceedWithEmptyBlockingSegment() {
         //given
-        TrafficLane trafficLane = new TrafficLane(Direction.South,Direction.North,Light.GREEN);
-        TrafficLane blockingLane = new TrafficLane(Direction.South,Direction.North,Light.GREEN);
+        TrafficLane trafficLane = new TrafficLane(Direction.SOUTH,Direction.NORTH,Light.GREEN);
+        TrafficLane blockingLane = new TrafficLane(Direction.SOUTH,Direction.NORTH,Light.GREEN);
 
         //when
-        trafficLane.addCar(new Car("car",Direction.South,Direction.North,true));
+        trafficLane.addCar(new Car("car",Direction.SOUTH,Direction.NORTH,true));
         trafficLane.addBlockingSegment(blockingLane);
 
         //then
@@ -160,10 +160,10 @@ class TrafficLaneTest {
     @Test
     void removeCar() {
         //given
-        TrafficLane trafficLane = new TrafficLane(Direction.South,Direction.North,Light.YELLOW);
+        TrafficLane trafficLane = new TrafficLane(Direction.SOUTH,Direction.NORTH,Light.YELLOW);
 
         //when
-        trafficLane.addCar(new Car("car",Direction.South,Direction.North,true));
+        trafficLane.addCar(new Car("car",Direction.SOUTH,Direction.NORTH,true));
 
         //then
         assertEquals(1, trafficLane.getSize());
@@ -174,10 +174,10 @@ class TrafficLaneTest {
     @Test
     void addCar() {
         //given
-        TrafficLane trafficLane = new TrafficLane(Direction.South,Direction.North,Light.YELLOW);
+        TrafficLane trafficLane = new TrafficLane(Direction.SOUTH,Direction.NORTH,Light.YELLOW);
 
         //when
-        trafficLane.addCar(new Car("car",Direction.South,Direction.North,true));
+        trafficLane.addCar(new Car("car",Direction.SOUTH,Direction.NORTH,true));
 
         //then
         assertEquals(1, trafficLane.getSize());

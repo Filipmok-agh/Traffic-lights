@@ -3,7 +3,6 @@ package infrastructure;
 import elements.Car;
 import elements.Direction;
 import elements.Light;
-import infrastructure.Crosswalk;
 import javafx.util.Pair;
 
 import java.util.ArrayList;
@@ -28,33 +27,32 @@ public class Intersection {
     }
 
     private void initializeTrafficLanes() {
-        this.trafficLanes.add(new TrafficLane(Direction.South, Direction.West, Light.RED));
-        this.trafficLanes.add(new TrafficLane(Direction.South, Direction.East, Light.RED));
-        this.trafficLanes.add(new TrafficLane(Direction.North, Direction.West, Light.RED));
-        this.trafficLanes.add(new TrafficLane(Direction.North, Direction.East, Light.RED));
-        this.trafficLanes.add(new TrafficLane(Direction.West, Direction.North, Light.GREEN));
-        this.trafficLanes.add(new TrafficLane(Direction.West, Direction.South, Light.GREEN));
-        this.trafficLanes.add(new TrafficLane(Direction.East, Direction.North, Light.GREEN));
-        this.trafficLanes.add(new TrafficLane(Direction.East, Direction.South, Light.GREEN));
-        this.trafficLanes.add(new TrafficLane(Direction.South, Direction.North, Light.RED));
-        this.trafficLanes.add(new TrafficLane(Direction.North, Direction.South, Light.RED));
-        this.trafficLanes.add(new TrafficLane(Direction.West, Direction.East, Light.GREEN));
-        this.trafficLanes.add(new TrafficLane(Direction.East, Direction.West, Light.GREEN));
+        this.trafficLanes.add(new TrafficLane(Direction.SOUTH, Direction.WEST, Light.RED));
+        this.trafficLanes.add(new TrafficLane(Direction.SOUTH, Direction.EAST, Light.RED));
+        this.trafficLanes.add(new TrafficLane(Direction.NORTH, Direction.WEST, Light.RED));
+        this.trafficLanes.add(new TrafficLane(Direction.NORTH, Direction.EAST, Light.RED));
+        this.trafficLanes.add(new TrafficLane(Direction.WEST, Direction.NORTH, Light.GREEN));
+        this.trafficLanes.add(new TrafficLane(Direction.WEST, Direction.SOUTH, Light.GREEN));
+        this.trafficLanes.add(new TrafficLane(Direction.EAST, Direction.NORTH, Light.GREEN));
+        this.trafficLanes.add(new TrafficLane(Direction.EAST, Direction.SOUTH, Light.GREEN));
+        this.trafficLanes.add(new TrafficLane(Direction.SOUTH, Direction.NORTH, Light.RED));
+        this.trafficLanes.add(new TrafficLane(Direction.NORTH, Direction.SOUTH, Light.RED));
+        this.trafficLanes.add(new TrafficLane(Direction.WEST, Direction.EAST, Light.GREEN));
+        this.trafficLanes.add(new TrafficLane(Direction.EAST, Direction.WEST, Light.GREEN));
     }
-    //TODO fo it in fors
     private void initializeLaneMapping() {
-        this.laneMapping.put(new Pair<>(Direction.South, Direction.West), 0);
-        this.laneMapping.put(new Pair<>(Direction.South, Direction.East), 1);
-        this.laneMapping.put(new Pair<>(Direction.North, Direction.West), 2);
-        this.laneMapping.put(new Pair<>(Direction.North, Direction.East), 3);
-        this.laneMapping.put(new Pair<>(Direction.West, Direction.North), 4);
-        this.laneMapping.put(new Pair<>(Direction.West, Direction.South), 5);
-        this.laneMapping.put(new Pair<>(Direction.East, Direction.North), 6);
-        this.laneMapping.put(new Pair<>(Direction.East, Direction.South), 7);
-        this.laneMapping.put(new Pair<>(Direction.South, Direction.North), 8);
-        this.laneMapping.put(new Pair<>(Direction.North, Direction.South), 9);
-        this.laneMapping.put(new Pair<>(Direction.West, Direction.East), 10);
-        this.laneMapping.put(new Pair<>(Direction.East, Direction.West), 11);
+        this.laneMapping.put(new Pair<>(Direction.SOUTH, Direction.WEST), 0);
+        this.laneMapping.put(new Pair<>(Direction.SOUTH, Direction.EAST), 1);
+        this.laneMapping.put(new Pair<>(Direction.NORTH, Direction.WEST), 2);
+        this.laneMapping.put(new Pair<>(Direction.NORTH, Direction.EAST), 3);
+        this.laneMapping.put(new Pair<>(Direction.WEST, Direction.NORTH), 4);
+        this.laneMapping.put(new Pair<>(Direction.WEST, Direction.SOUTH), 5);
+        this.laneMapping.put(new Pair<>(Direction.EAST, Direction.NORTH), 6);
+        this.laneMapping.put(new Pair<>(Direction.EAST, Direction.SOUTH), 7);
+        this.laneMapping.put(new Pair<>(Direction.SOUTH, Direction.NORTH), 8);
+        this.laneMapping.put(new Pair<>(Direction.NORTH, Direction.SOUTH), 9);
+        this.laneMapping.put(new Pair<>(Direction.WEST, Direction.EAST), 10);
+        this.laneMapping.put(new Pair<>(Direction.EAST, Direction.WEST), 11);
     }
 
     private void initializeBlockingSegments() {
@@ -76,7 +74,6 @@ public class Intersection {
         this.eastCrosswalk.step();
     }
 
-    // Dodaj optionala
     public ArrayList<String> moveCarsFromLanes() {
         ArrayList<String> result = new ArrayList<>();
         for (TrafficLane trafficLane : this.trafficLanes)
