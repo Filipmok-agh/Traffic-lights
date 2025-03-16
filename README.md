@@ -13,7 +13,7 @@ This project creates an application that simulates an intersection with traffic 
 - **Testing**: JUnit
 
 ## Running the Application
-To run the application and tests in Docker, follow these steps:
+To run the application follow these steps:
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/Filipmok-agh/Traffic-lights.git
